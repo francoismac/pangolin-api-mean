@@ -1,0 +1,14 @@
+  <body class="text-center">
+    <form class="form-signin"  (submit)="onCreationetAjout()">
+      <img class="mb-4" src="assets/img/pangolin.jpg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Ici vous pouvez creer un ami</h1>
+      <label for="inputnom" class="sr-only">Nom</label>
+      <input input type="text" class="form-control" [(ngModel)]="nom" name="nom" placeholder="Nom" required autofocus>      
+      <label for="inputlogin" class="sr-only">Login</label>
+      <input input type="text" class="form-control" [(ngModel)]="login" name="login" placeholder="Login" required autofocus>
+      <label for="inputPassword" class="sr-only">Mot de passe</label>
+      <input type="password" class="form-control" [(ngModel)]="mdp" name="mdp" placeholder="Mot de passe" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+    </form>
+  </body>

@@ -1,0 +1,63 @@
+
+
+  <body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+      <img class="mb-4" src="assets/img/pangolin.jpg" alt="" width="72" height="72">
+        <h2>Mon profil</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Mes amis</span>
+          </h4>
+          <ul class="list-group mb-3">
+		    <li *ngFor="let ami of mesamis">
+		      {{ ami.nom }}
+		      <button class="btn btn-outline-danger" *ngIf = "!estvide" (click)="onSupprimerAmi(ami.nom)">✘</button>
+		    </li>
+		    <li *ngIf="estvide"> Vous n'avez pas d'amis</li>
+          </ul>
+			<div class="form-group">
+			  <label for="nom">Nom : </label>
+			  <input #nom type="text" >
+			  <button class="btn btn-success" (click)="onAjouterAmi(nom.value)"> Ajouter</button>
+			</div>
+          </div>
+
+
+        <div class="col-md-8 ">
+
+  	  <h2>Mes informations personnelles</h2>
+
+          <form class="card p-2" (ngSubmit)="onSubmit(f)" #f="ngForm">
+		<div class="form-group">
+		    <label for="nom">
+		      Mon nom
+		    </label>
+		    <input type="text" id="nom" class="form-control" name="nom" [(ngModel)]="utilisateur.nom" ngModel required>
+		</div>
+		<div class="form-group">
+		    <label for="age">
+		      Mon Age
+		    </label>
+		    <input type="text" id="age" class="form-control" name="age" [(ngModel)]="utilisateur.age">
+		</div>
+		<div class="form-group">
+		    <label for="famille">
+		      Ma Famille
+		    </label>
+		    <select id="famille" class="form-control" name="famille"[(ngModel)]="utilisateur.famille">
+		      <option value="Grand Pangolin">Grand Pangolin</option>
+		      <option value="Pangolin de Chine">Pangolin de Chine</option>
+		      <option value="Pangolin Javanais">Pangolin Javanais</option>
+		    </select>
+		</div>
+  			<h4> Mon identifiant unique: {{utilisateur._id}} </h4>
+      		<button class="btn btn-primary  btn-lg btn-block" type="submit" [disabled]="f.invalid">Modifier</button>
+    </form>
+</div>
+</div>
+</div>

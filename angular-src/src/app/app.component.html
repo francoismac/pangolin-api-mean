@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+          <li routerLinkActive="active"><a routerLink="accueil">Accueil</a></li>
+          <li *ngIf="!authService.estConnecte()"routerLinkActive="active"><a routerLink="auth">Se connecter</a></li>
+          <li *ngIf="!authService.estConnecte()"routerLinkActive="active"><a routerLink="inscription">S'inscrire</a></li>
+          <li *ngIf="authService.estConnecte()" routerLinkActive="active"><a routerLink="profil">Mon Profil</a></li>
+          <li *ngIf="authService.estConnecte()"><a (click)="onDeconnexionClick()" href="auth">Se deconnecter</a></li>
+      </ul>
+      <div class="navbar-right">
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <flash-messages></flash-messages>
+     <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
